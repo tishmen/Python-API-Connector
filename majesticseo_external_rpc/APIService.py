@@ -30,10 +30,10 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import sys
-import urllib
-import urllib2
-import Response
-from Response import *
+import urllib.request, urllib.parse, urllib.error
+import urllib.request, urllib.error, urllib.parse
+from . import Response
+from .Response import *
 
 class APIService:
     
@@ -74,9 +74,9 @@ class APIService:
 
 
 	def execute_request(self, parameters, timeout):
-		parameters = urllib.urlencode(parameters)
-		request = urllib2.Request(self.end_point)
-		response = urllib2.urlopen(request, parameters, timeout)
+		parameters = urllib.parse.urlencode(parameters)
+		request = urllib.request.Request(self.end_point)
+		response = urllib.request.urlopen(request, parameters, timeout)
 		
 		try:
 			return Response(response)

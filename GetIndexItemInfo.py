@@ -39,38 +39,38 @@ from majesticseo_external_rpc.APIService import *
 if(__name__ == '__main__'):
     endpoint = 'https://api.majestic.com/api_command'
 
-    print ('\n***********************************************************'
-            + '*****************')
+    print(('\n***********************************************************'
+            + '*****************'))
 
-    print ('\nEndpoint: ' + endpoint)
+    print(('\nEndpoint: ' + endpoint))
 
     if('https://api.majestic.com/api_command' == endpoint):
         print ('\nThis program is hard-wired to the Enterprise API.')
         
-        print ('\nIf you do not have access to the Enterprise API, '
-            + 'change the endpoint to: \nhttps://developer.majestic.com/api_command.')
+        print(('\nIf you do not have access to the Enterprise API, '
+            + 'change the endpoint to: \nhttps://developer.majestic.com/api_command.'))
     else:
-        print ('\nThis program is hard-wired to the Developer API '
+        print(('\nThis program is hard-wired to the Developer API '
             + 'and hence the subset of data \nreturned will be substantially '
             + 'smaller than that which will be returned from \neither the '
-            + 'Enterprise API or the Majestic website.')
+            + 'Enterprise API or the Majestic website.'))
 
-        print ('\nTo make this program use the Enterprise API, change '
-            + 'the endpoint to: \nhttps://api.majestic.com/api_command.')
+        print(('\nTo make this program use the Enterprise API, change '
+            + 'the endpoint to: \nhttps://api.majestic.com/api_command.'))
 
-    print ('\n***********************************************************'
-                    + '*****************')
+    print(('\n***********************************************************'
+                    + '*****************'))
 
-    print ('\n\nThis example program will return key information about \'index items\'.'
+    print(('\n\nThis example program will return key information about \'index items\'.'
             + '\n\nThe following must be provided in order to run this program: '
-            + '\n1. API key \n2. List of items to query')
+            + '\n1. API key \n2. List of items to query'))
 
-    app_api_key = raw_input('\nPlease enter your API key:\n')
+    app_api_key = input('\nPlease enter your API key:\n')
 
-    print ('\nPlease enter the list of items you wish to query seperated by commas: '
-            + '\n(e.g. majestic.com, majestic12.co.uk)')
+    print(('\nPlease enter the list of items you wish to query seperated by commas: '
+            + '\n(e.g. majestic.com, majestic12.co.uk)'))
 
-    items_to_query = raw_input()
+    items_to_query = input()
     items = items_to_query.split(', ')
 
     # create a hash from the resulting array with the key being
@@ -93,46 +93,46 @@ if(__name__ == '__main__'):
         results = response.get_table_for_name('Results')
         for row in results.rows:
             item = row['Item']
-            print '\n<' + str(item) + '>'
+            print('\n<' + str(item) + '>')
             for key in sorted(row.keys()):
                 if('Item' != key):
                     value = row[key]
-                    print ' ' + str(key) + ' ... ' + str(value)
+                    print(' ' + str(key) + ' ... ' + str(value))
 
         if('https://developer.majestic.com/api_command' == endpoint):
-            print ('\n\n***********************************************************'
-                + '*****************')
+            print(('\n\n***********************************************************'
+                + '*****************'))
 
-            print ('\nEndpoint: ' + endpoint)
+            print(('\nEndpoint: ' + endpoint))
 
-            print ('\nThis program is hard-wired to the Developer API '
+            print(('\nThis program is hard-wired to the Developer API '
                 + 'and hence the subset of data \nreturned will be substantially '
                 + 'smaller than that which will be returned from \neither the '
-                + 'Enterprise API or the Majestic website.')
+                + 'Enterprise API or the Majestic website.'))
 
-            print ('\nTo make this program use the Enterprise API, change '
-                + 'the endpoint to: \nhttps://api.majestic.com/api_command.')
+            print(('\nTo make this program use the Enterprise API, change '
+                + 'the endpoint to: \nhttps://api.majestic.com/api_command.'))
 
-            print ('\n***********************************************************'
-                + '*****************')
+            print(('\n***********************************************************'
+                + '*****************'))
     else:
         print ('\nERROR MESSAGE:')
-        print (str(response.get_error_message()))
+        print((str(response.get_error_message())))
 
-        print ('\n\n***********************************************************'
-            + '*****************')
+        print(('\n\n***********************************************************'
+            + '*****************'))
 
         print ('\nDebugging Info:')
-        print ('\n  Endpoint: \t' + endpoint)
-        print ('  API Key: \t' + app_api_key)
+        print(('\n  Endpoint: \t' + endpoint))
+        print(('  API Key: \t' + app_api_key))
 
         if('https://api.majestic.com/api_command' == endpoint):
             print ('\n  Is this API Key valid for this Endpoint?')
 
             print ('\n  This program is hard-wired to the Enterprise API.')
 
-            print ('\n  If you do not have access to the Enterprise API, '
-                + 'change the endpoint to: \n  https://developer.majestic.com/api_command.')
+            print(('\n  If you do not have access to the Enterprise API, '
+                + 'change the endpoint to: \n  https://developer.majestic.com/api_command.'))
 
-        print ('\n***********************************************************'
-                    + '*****************')
+        print(('\n***********************************************************'
+                    + '*****************'))

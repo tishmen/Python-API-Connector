@@ -29,8 +29,8 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import DataTable
-from DataTable import *
+from . import DataTable
+from .DataTable import *
 from xml.sax import handler
 from xml.sax import make_parser
 
